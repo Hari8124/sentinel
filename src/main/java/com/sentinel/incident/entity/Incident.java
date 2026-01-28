@@ -7,7 +7,7 @@ import com.sentinel.common.entity.BaseEntity;
 import com.sentinel.incident.model.IncidentEventType;
 import com.sentinel.incident.model.IncidentStatus;
 import com.sentinel.incident.model.Severity;
-import com.sentinel.service.entity.Service;
+import com.sentinel.service.entity.ProductionService;
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -20,7 +20,7 @@ public class Incident extends BaseEntity {
     private List<IncidentEvent> events = new ArrayList<>();
 
     @ManyToOne(optional = false)
-    private Service service;
+    private ProductionService productionService;
 
     @Column(nullable = false)
     private String title;
@@ -50,8 +50,8 @@ public class Incident extends BaseEntity {
         // JPA only
     }
 
-    public Incident(Service service, String title, String description, Severity severity){
-        this.service = service;
+    public Incident(ProductionService productionService, String title, String description, Severity severity){
+        this.productionService = productionService;
         this.title = title;
         this.description = description;
         this.severity = severity;

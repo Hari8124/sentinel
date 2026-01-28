@@ -6,7 +6,7 @@ import com.sentinel.team.entity.Team;
 import jakarta.persistence.*;
 @Entity
 @Table(name = "services")
-public class Service extends BaseEntity {
+public class ProductionService extends BaseEntity {
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -14,11 +14,11 @@ public class Service extends BaseEntity {
     @ManyToOne(optional = false)
     private Team owningTeam;
 
-    protected Service(){
+    protected ProductionService(){
         // JPA only
     }
 
-    public Service(String name, Team owningTeam){
+    public ProductionService(String name, Team owningTeam){
         this.name = name;
         this.owningTeam = owningTeam;
     }
